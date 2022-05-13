@@ -1,0 +1,7 @@
+# replace with Kraken public api key 
+# replace with Kraken private api key 
+# replace with Twitter public key
+# replace with Twitter private key
+# replace with Twitter bearer token
+# replace with Twitter access token
+# replace with Twitter access token secret 
