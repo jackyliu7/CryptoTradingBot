@@ -43,7 +43,8 @@ def get_sentiment(account_balance, doge_balance):
             if scores != 0:
                 delta_minutes = (now_utc - tweet.created_at).seconds // 60
                 text = text.lower()
-                if delta_minutes < 30 and ("crypto" in text or "stock" in text or "doge" in text or "bitcoin" in text):
+                key_words = ["crypto", "stock", "blockchain", "bitcoin", "doge"]
+                if delta_minutes < 10 and any(word in text for word in key_words):
                     return scores
 
     return 0

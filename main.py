@@ -21,6 +21,7 @@ def main():
         account_balance = 0  # balance in account in USD
         doge_balance = 0  # number of dogecoins currently held in account
 
+        # retrieve current cash and dogecoin balances
         response = kraken_api.kraken_request(
             '/0/private/Balance', 
             {
@@ -33,7 +34,6 @@ def main():
         except KeyError:
             print("Error retrieving account balance")
             print("Response:", response.json())
-
         try:
             doge_balance = float(response.json()["result"]["XXDG"])
         except KeyError:
@@ -93,6 +93,6 @@ def main():
             else:
                 print("Unknown Error. API response:", error_data)
         
-        time.sleep(5)
+        time.sleep(10)
 
 main()
