@@ -44,7 +44,7 @@ def main():
         sentiment = twitter_api.get_sentiment(account_balance, doge_balance)
         current_price = float(requests.get("https://api.kraken.com/0/public/Ticker?pair=DOGEUSD"
                                           ).json()["result"]["XDGUSD"]["c"][0])
-        volume = int(account_balance * 0.9 / current_price)
+        volume = int(account_balance * 0.95 / current_price)
 
         # Buy order from Kraken API if positive sentiment found in Elon's tweet
         if sentiment > 0 and volume >= 20:
