@@ -35,7 +35,7 @@ def get_sentiment(account_balance, doge_balance):
         # get current time in UTC
         now_utc = datetime.now(timezone.utc)
 
-        # get the 5 latest tweets from Elon Musk's Twitter timeline
+        # get the 5 latest tweets from Elon Musk's Twitter timeline and analyze them if posted < 5 mins ago
         tweets = api.user_timeline(screen_name="elonmusk", tweet_mode="extended", count=5)
         for tweet in tweets:
             text = clean_text(tweet.full_text)
@@ -44,7 +44,7 @@ def get_sentiment(account_balance, doge_balance):
                 delta_minutes = (now_utc - tweet.created_at).seconds // 60
                 text = text.lower()
                 key_words = ["crypto", "stock", "blockchain", "bitcoin", "doge"]
-                if delta_minutes < 10 and any(word in text for word in key_words):
+                if delta_minutes < 5 and any(word in text for word in key_words):
                     return scores
 
     return 0
