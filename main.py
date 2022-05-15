@@ -68,8 +68,8 @@ def main():
                 print("Insufficient funds to make an order of", volume, "Doge.")
             else:
                 print("Unknown Error. API response:", error_data)
-        elif volume < 20:
-            print("Insufficient funds to make a minimum order of 20 Doge.")
+        elif sentiment > 0 and volume < 20:
+            print("Positive sentiment detected but insufficient funds to make a minimum order of 20 Doge.")
 
         # Sell order from Kraken API if negative sentiment found in Elon's tweet
         if doge_balance > 0 and sentiment < 0:            
